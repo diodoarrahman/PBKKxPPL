@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KosanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [App\Http\Controllers\LandingPageController::class,'index']);
+Route::get('/kosan', [KosanController::class,'index'])->name("kosan");
+Route::get('/create', [KosanController::class,'create'])->name("create");
+Route::post('/store',[KosanController::class, 'store'])->name('store');
