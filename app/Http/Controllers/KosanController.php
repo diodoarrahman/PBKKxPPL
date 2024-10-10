@@ -53,9 +53,9 @@ class KosanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Kosan $kosan)
     {
-        //
+        return view('edit', ['kosan' => $kosan]);
     }
 
     /**
@@ -63,14 +63,20 @@ class KosanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([]);
+        $kosan = Kosan::find($id);
+        $kosan->update($request->all()); //
+        return redirect()->route('kosan')->with('success', 'Data kosan 
+        berhasil diubah');
     }
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Kosan $kosan)
     {
-        //
+        $kosan->delete();
+
+        return redirect('/kosan')->with('success', 'Data Kosan Berhasil Dihapus');
+
     }
 }

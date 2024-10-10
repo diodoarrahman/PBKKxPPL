@@ -16,6 +16,7 @@
         <tr>Jenis Kos</tr>
         <tr>Tenggat Pembayaran</tr>
         <tr>Tersedia</tr>
+        <tr>Aksi</tr>
     </thead>
     <tbody>
         @foreach ($data as $dt)
@@ -25,9 +26,21 @@
             <td>{{$dt->jeniskos}}</td>
             <td>{{$dt->tenggat_pembayaran}}</td>
             <td>{{$dt->tersedia}}</td>
+            <td>
+                <a href="{{ route('edit', $dt->id) }}">edit</a>
+                <form action="{{ route('destroy', $dt->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>hapus</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<a class="btn btn-primary mr-2" style="float: right; margin-top: 10px"
+href="{{ route('create') }}">
+Tambah
+</a>
 </body>
 </html>

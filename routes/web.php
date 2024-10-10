@@ -22,3 +22,6 @@ Route::get('/dashboard', [App\Http\Controllers\LandingPageController::class,'ind
 Route::get('/kosan', [KosanController::class,'index'])->name("kosan");
 Route::get('/create', [KosanController::class,'create'])->name("create");
 Route::post('/store',[KosanController::class, 'store'])->name('store');
+Route::get("/kosan/{kosan}",[KosanController::class, 'edit'])->name('edit');
+Route::put("/kosan/{kosan}",[KosanController::class, 'update'])->name('update');
+Route::delete('/kosan/{kosan}', [KosanController::class, 'destroy'])->name('destroy');
