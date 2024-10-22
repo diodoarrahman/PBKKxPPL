@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('jeniskos', ['Putra', 'Putri','Campur']);
             $table->date('tenggat_pembayaran');
             $table->boolean('tersedia')->default(true);
+            $table->foreignIdFor(App\Models\Pemilik::class)->constrained()->OnDelete('cascade');
             $table->timestamps();
         });
     }

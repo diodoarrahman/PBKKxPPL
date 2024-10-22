@@ -16,6 +16,7 @@
         <tr>Jenis Kos</tr>
         <tr>Tenggat Pembayaran</tr>
         <tr>Tersedia</tr>
+        <tr>Pemilik</tr>
         <tr>Aksi</tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
             <td>{{$dt->jeniskos}}</td>
             <td>{{$dt->tenggat_pembayaran}}</td>
             <td>{{$dt->tersedia}}</td>
+            <td>{{$dt->pemilik->nama_pemilik}}</td>
             <td>
                 <a href="{{ route('edit', $dt->id) }}">edit</a>
                 <form action="{{ route('destroy', $dt->id) }}" method="POST">

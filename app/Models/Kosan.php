@@ -16,4 +16,11 @@ class Kosan extends Model
         'tenggat_pembayaran',
         'tersedia'
         ];
+
+    //One To Many
+public function pemilik()
+{
+return $this->belongsTo(Pemilik::class);
 }
+}
+
